@@ -1,0 +1,51 @@
+{% extends "navbar.html" %}
+
+{% block head %}
+<link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+<link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='css/index480.css') }}">
+<link rel="stylesheet"  type="text/css" href="{{ url_for('static', filename='css/index768.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="intro">
+    <div class="violet-box">
+        <h1 id="mhbt">Making health better together</h1>
+        <a id ="km" href="#aboutblock">know more</a>
+    </div>
+</div>
+<div id="aboutblock">
+    <div id="about">
+    <h1>About Us</h1>
+    <br>
+    <p>
+        We are committed to helping patients make informed decisions about their medications. We understand that finding the right medication can be challenging, and our goal is to simplify the process by providing personalized and evidence-based recommendations.
+        
+        Our system uses advanced sentimental analysis to evaluate user feedback and provide recommendations that take into account not only the effectiveness of the drug but also its potential side effects. By analyzing the sentiment of user reviews and feedback, we can better understand the experiences of other patients and provide recommendations that are tailored to each individual user's needs.</p>
+        
+    <p> Thank you for choosing our drug recommendation system. We look forward to serving you and helping you achieve your health goals.</p>
+    <br>
+   </div>
+</div>
+
+<div class="lastcon">
+    <div class="search" id="search-sh">
+        <form action="/searched" method="post">
+            <div class="search-s">
+                <input list="magicHouses"  id="search" name="search" placeholder="Provide your condition here" required />
+            <datalist id="magicHouses">
+                {% for drugName in conList %}
+                    <option value = "{{drugName}}">
+                {% endfor %}
+            </datalist>
+            <button id="bt" type="submit" name="submit-search"><i class="fa fa-search"></i></button>
+            </div>
+           
+        </form>
+
+    </div>
+    <!-- <img src="{{url_for('static', filename='images/color-tabs.jpg')}}" height="40vh" width="50vw" alt=""> -->
+</div>
+    
+   
+    
+{% endblock %}
